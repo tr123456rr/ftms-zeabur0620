@@ -1,0 +1,74 @@
+你的 Vite + React + Supabase 專案部署到 Zeabur的完整步驟教學，包含 Supabase 設定。
+
+
+一、準備階段
+1. 專案推送到 GitHub（或 GitLab）
+如果你的專案還沒在 GitHub，請先初始化 git 並推送：
+Run
+git init
+git add .
+git commit -m "init"
+git remote add origin https://github.com/kkman0611/ftms-zeabur0619.git
+git push -u origin main
+
+1. Git 無法識別你的身份（user.name & user.email 未設定）
+這是因為你還沒設定 Git 的用戶名稱和 email。請在 PowerShell 輸入以下兩行（請用你自己的名字和 email 替換）：
+git config --global user.name "kkman0611"
+git config --global user.email "e6688888@yahoo.com.tw"
+
+增加一份資料 專案的架構,並給我一份分析報告.txt 請幫我上傳到githhub
+git add "專案的架構,並給我一份分析報告.txt" && git commit -m "add 專案的架構,並給我一份分析報告.txt" && git push
+git add "專案的架構,並給我一份分析報告.txt"
+git commit -m "add 專案的架構,並給我一份分析報告.txt"
+git push -u origin main
+
+資料有做修正~~請幫我上傳github更新
+git add .
+git commit -m
+git push -u origin main
+
+二、Supabase 設定
+1. 取得 Supabase 連線資訊
+登入 Supabase 控制台。
+選擇你的專案。
+點選左側「Project Settings」→「API」。
+複製以下兩個資訊：
+Project URL（通常是 https://xxxx.supabase.co）
+anon public key
+三、Zeabur 部署步驟
+1. 登入 Zeabur 並建立新專案
+登入 Zeabur。
+點「Create Project」→ 選擇「Import from GitHub」。
+選擇剛剛 push 的 repo。
+2. 設定 Build & Start 指令
+Build 指令：npm run build
+Start 指令：npm run preview
+Zeabur 會自動偵測 Vite 專案，通常不用手動改。
+3. 設定環境變數
+在 Zeabur 專案後台，找到「Environment Variables」。
+新增以下兩個變數（名稱需與你專案中使用的相同，通常在 src/integrations/supabase/client.ts 會看到）：
+VITE_SUPABASE_URL = 剛剛複製的 Project URL
+VITE_SUPABASE_ANON_KEY = 剛剛複製的 anon public key
+> 注意：Vite 前綴的環境變數必須是 VITE_ 開頭，前端才能讀取。
+4. 儲存並部署
+點擊「Save」或「Deploy」。
+Zeabur 會自動 build 並部署你的專案。
+四、檢查與測試
+部署完成後，Zeabur 會給你一個網址，點擊即可訪問。
+測試 Supabase 相關功能（登入、資料存取等）是否正常。
+五、常見問題排查
+白畫面/資料抓不到：檢查環境變數是否正確、Supabase 資料表權限是否開放。
+build 失敗：檢查 package.json 是否有正確的 build/preview 指令。
+CORS 問題：Supabase 預設支援前端，通常不會有問題。
+六、補充
+若你有 .env 檔案，內容如下（範例）：
+Apply to 專案部署到 Zeabur...
+請將這些內容複製到 Zeabur 的環境變數設定。
+需要更詳細的步驟（如圖文教學）、或遇到錯誤訊息，請直接貼上，我可以協助你排查！
+
+
+你的專案已經成功推送到 GitHub！
+下一步
+請到你的 GitHub repo 頁面（https://github.com/kkman0611/ftms-zeabur0619）刷新頁面，應該會看到所有專案檔案（如 src、public、package.json 等）。
+現在你可以繼續進行 Zeabur 的部署，或進行後續設定（如 Supabase 環境變數）。
+如需 Zeabur 部署或 Supabase 設定的詳細教學，請告訴我，我可以一步步帶你完成！
