@@ -50,6 +50,10 @@ Zeabur 會自動偵測 Vite 專案，通常不用手動改。
 VITE_SUPABASE_URL = 剛剛複製的 Project URL
 VITE_SUPABASE_ANON_KEY = 剛剛複製的 anon public key
 > 注意：Vite 前綴的環境變數必須是 VITE_ 開頭，前端才能讀取。
+需修改,
+src/integrations/supabase/client.ts
+src/vite-env.d.ts
+將key藏在 Zeabur 環境變數中
 4. 儲存並部署
 點擊「Save」或「Deploy」。
 Zeabur 會自動 build 並部署你的專案。
