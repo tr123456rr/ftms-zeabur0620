@@ -1,5 +1,7 @@
 你的 Vite + React + Supabase 專案部署到 Zeabur的完整步驟教學，包含 Supabase 設定。
 
+https://github.com/tr123456rr/ftms-zeabur0620.git
+
 
 一、準備階段
 1. 專案推送到 GitHub（或 GitLab）
